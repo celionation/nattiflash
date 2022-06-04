@@ -20,6 +20,16 @@ class View
         $this->_layout = $layout;
     }
 
+    public function setSiteTitle($title): void
+    {
+        $this->_siteTitle = $title;
+    }
+
+    public function getSiteTitle()
+    {
+        return $this->_siteTitle;
+    }
+
     /**
      * @throws Exception
      */
@@ -45,7 +55,7 @@ class View
     /**
      * @throws Exception
      */
-    public function start($key)
+    public function start($key): void
     {
         if (empty($key)) {
             throw new \Exception("Your start method requires a valid key.");
@@ -57,7 +67,7 @@ class View
     /**
      * @throws Exception
      */
-    public function end()
+    public function end(): void
     {
         if (empty($this->_buffer)) {
             throw new \Exception("You must first run the start method.");
@@ -66,7 +76,8 @@ class View
         $this->_buffer = null;
     }
 
-    public function content($key)
+
+    public function content($key): void
     {
         if (array_key_exists($key, $this->_content)) {
             echo $this->_content[$key];
@@ -75,7 +86,7 @@ class View
         }
     }
 
-    public function partial($path)
+    public function partial($path): void
     {
         $fullPath = PROOT . DS . 'app' . DS . 'views' . DS . $path . '.php';
         if (file_exists($fullPath)) {
