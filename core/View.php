@@ -86,7 +86,15 @@ class View
         }
     }
 
-    public function partial($path): void
+    public function components($path): void
+    {
+        $fullPath = PROOT . DS . 'app' . DS . 'views' . DS . 'components' . DS . $path . '.php';
+        if (file_exists($fullPath)) {
+            include($fullPath);
+        }
+    }
+
+    public function partials($path): void
     {
         $fullPath = PROOT . DS . 'app' . DS . 'views' . DS . $path . '.php';
         if (file_exists($fullPath)) {

@@ -2,13 +2,187 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="39695df2-1707-44ce-b060-242fe34d4718" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/assets/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/assets/css/bootstrap.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/assets/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/assets/js/bootstrap.bundle.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/assets/js/bootstrap.bundle.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/css/all.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/css/auth.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/img/Mastercard.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/img/PayPal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/img/Paytm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/img/Stripe.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/img/Visa.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/img/about-heading.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/img/author.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/img/contact-heading.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/img/favicon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/img/file.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/img/img.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/img/logocolor.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/img/older_posts/older_posts_1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/img/older_posts/older_posts_2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/img/older_posts/older_posts_3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/img/older_posts/older_posts_4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/img/older_posts/older_posts_5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/img/older_posts/older_posts_6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/img/paystack.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/img/quick_read/quick_read_1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/img/quick_read/quick_read_2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/img/quick_read/quick_read_3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/img/quick_read/quick_read_4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/img/quick_read/quick_read_5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/img/quick_read/quick_read_6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/img/trending/trending_1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/img/trending/trending_2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/img/trending/trending_3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/img/trending/trending_4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/img/trending/trending_5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/bootstrap/css/bootstrap-grid.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/bootstrap/css/bootstrap-grid.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/bootstrap/css/bootstrap-reboot.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/bootstrap/css/bootstrap-reboot.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/bootstrap/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/bootstrap/js/bootstrap.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/bootstrap/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/bootstrap/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/LICENSE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/ckeditor.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/ckeditor.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/sample/css/sample.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/sample/img/bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/sample/img/github.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/sample/img/logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/sample/img/umbrellas.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/af.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/ar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/ast.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/az.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/bg.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/bs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/ca.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/cs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/da.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/de-ch.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/de.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/el.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/en-au.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/en-gb.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/eo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/es.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/et.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/eu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/fa.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/fi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/fr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/gl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/gu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/he.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/hi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/hr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/hu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/id.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/it.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/ja.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/km.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/kn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/ko.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/ku.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/lt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/lv.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/ms.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/nb.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/ne.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/nl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/no.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/oc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/pl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/pt-br.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/pt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/ro.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/ru.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/si.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/sk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/sl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/sq.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/sr-latn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/sr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/sv.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/th.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/tk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/tr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/tt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/ug.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/uk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/uz.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/vi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/zh-cn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/ckeditor5/translations/zh.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/datatables/dataTables.bootstrap4.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/datatables/dataTables.bootstrap4.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/datatables/jquery.dataTables.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/font-awesome/css/font-awesome.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/font-awesome/css/font-awesome.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/font-awesome/fonts/FontAwesome.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/font-awesome/fonts/fontawesome-webfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/font-awesome/fonts/fontawesome-webfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/font-awesome/fonts/fontawesome-webfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/font-awesome/fonts/fontawesome-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/font-awesome/fonts/fontawesome-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/font-awesome/less/animated.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/font-awesome/less/bordered-pulled.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/font-awesome/less/core.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/font-awesome/less/fixed-width.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/font-awesome/less/font-awesome.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/font-awesome/less/icons.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/font-awesome/less/larger.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/font-awesome/less/list.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/font-awesome/less/mixins.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/font-awesome/less/path.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/font-awesome/less/rotated-flipped.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/font-awesome/less/screen-reader.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/font-awesome/less/stacked.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/font-awesome/less/variables.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/font-awesome/scss/_animated.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/font-awesome/scss/_bordered-pulled.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/font-awesome/scss/_core.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/font-awesome/scss/_fixed-width.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/font-awesome/scss/_icons.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/font-awesome/scss/_larger.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/font-awesome/scss/_list.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/font-awesome/scss/_mixins.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/font-awesome/scss/_path.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/font-awesome/scss/_rotated-flipped.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/font-awesome/scss/_screen-reader.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/font-awesome/scss/_stacked.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/font-awesome/scss/_variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/font-awesome/scss/font-awesome.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/jquery-easing/jquery.easing.compatibility.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/jquery-easing/jquery.easing.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/jquery-easing/jquery.easing.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/jquery/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/jquery/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/sweetalert2/sweetalert2.all.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/sweetalert2/sweetalert2.all.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/sweetalert2/sweetalert2.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/sweetalert2/sweetalert2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/sweetalert2/sweetalert2.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/sweetalert2/sweetalert2.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/toastr/toastr.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/toastr/toastr.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/toastr/toastr.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/vendor/toastr/toastr.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/webfonts/fa-brands-400.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/webfonts/fa-brands-400.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/webfonts/fa-regular-400.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/webfonts/fa-regular-400.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/webfonts/fa-solid-900.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/webfonts/fa-solid-900.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/webfonts/fa-v4compatibility.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/webfonts/fa-v4compatibility.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/components/mainMenu.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/partials/welcome.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/BlogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/BlogController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/js/bootstrap.bundle.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/js/bootstrap.bundle.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/blog/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/blog/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/layouts/default.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/default.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/View.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/View.php" afterDir="false" />
@@ -42,19 +216,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "list.type.of.created.stylesheet": "CSS",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -63,7 +237,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1654288028419</updated>
-      <workItem from="1654288030401" duration="20927000" />
+      <workItem from="1654288030401" duration="23135000" />
     </task>
     <servers />
   </component>
