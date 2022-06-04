@@ -30,4 +30,7 @@ if (ROOT != '/') {
 }
 $url = preg_replace('/(\?.+)/', '', $url);
 
-Router::route($url);
+try {
+    Router::route($url);
+} catch (Exception $e) {
+}

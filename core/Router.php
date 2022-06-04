@@ -28,12 +28,14 @@ class Router
         array_shift($urlParts);
 
         if (!class_exists($controller)) {
-            throw new Exception("The controller \"{$controller}\" does not exist.");
+            throw new Exception(Errors::get('1001'), 1001);
+//            throw new \Exception("The controller \"{$controller}\" does not exist.");
         }
         $controllerClass = new $controller($controllerName, $actionName);
 
         if (!method_exists($controllerClass, $action)) {
-            throw new Exception("The method \"{$action}\" does not exist on the \"{$controller}\" controller.");
+            throw new Exception(Errors::get('1001'), 1001);
+//            throw new Exception("The method \"{$action}\" does not exist on the \"{$controller}\" controller.");
         }
         call_user_func_array([$controllerClass, $action], $urlParts);
     }
