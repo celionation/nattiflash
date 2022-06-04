@@ -11,7 +11,6 @@ class Controller
     {
         $this->_controllerName = $controller;
         $this->_actionName = $action;
-        var_dump($controller);
 //        $viewPath = strtolower($controller) . '/' . $action;
 //        $this->view = new View($viewPath);
 //        $this->view->setLayout(Config::get('default_layout'));
