@@ -11,9 +11,9 @@ class Controller
     {
         $this->_controllerName = $controller;
         $this->_actionName = $action;
-//        $viewPath = strtolower($controller) . '/' . $action;
-//        $this->view = new View($viewPath);
-//        $this->view->setLayout(Config::get('default_layout'));
+        $viewPath = strtolower($controller) . '/' . $action;
+        $this->view = new View($viewPath);
+        $this->view->setLayout(Config::get('default_layout'));
 //        $this->request = new Request();
 //        $this->onConstruct();
     }
