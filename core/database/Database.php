@@ -180,7 +180,7 @@ class Database
         $this->_fetchType = $type;
     }
 
-    public function getFetchType()
+    public function getFetchType(): int
     {
         return $this->_fetchType;
     }
