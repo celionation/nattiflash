@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="39695df2-1707-44ce-b060-242fe34d4718" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/core/Cookie.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/Request.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/Session.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/helpers/GenerateToken.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/helpers/StringFormat.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/Model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/Controller.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +66,7 @@
       <option name="presentableId" value="Default" />
       <updated>1654288028419</updated>
       <workItem from="1654288030401" duration="25783000" />
-      <workItem from="1654354455716" duration="8078000" />
+      <workItem from="1654354455716" duration="9576000" />
     </task>
     <servers />
   </component>
