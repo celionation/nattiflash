@@ -3,16 +3,17 @@
 namespace core\database;
 
 use core\Config;
+use core\helpers\CoreHelpers;
 use Exception;
 use PDO;
 
 class Database
 {
     protected $_dbh, $_results, $_class;
-    protected int $_fetchType = PDO::FETCH_OBJ;
-    protected mixed $_lastInsertId;
-    protected bool $_error = false;
-    protected int $_rowCount = 0;
+    protected $_fetchType = PDO::FETCH_OBJ;
+    protected $_lastInsertId;
+    protected $_error = false;
+    protected $_rowCount = 0;
     protected $_stmt;
     protected static $_db;
 
@@ -51,7 +52,7 @@ class Database
      * @param array $bind
      * @return $this
      */
-    public function execute($sql, array $bind = [])
+    public function execute($sql, array $bind = []): Database
     {
         $this->_results = null;
         $this->_lastInsertId = null;
@@ -71,7 +72,7 @@ class Database
      * @param array $bind
      * @return $this
      */
-    public function query($sql, array $bind = [])
+    public function query($sql, array $bind = []): Database
     {
         $this->execute($sql, $bind);
         if (!$this->_error) {
@@ -83,6 +84,58 @@ class Database
             }
         }
         return $this;
+    }
+
+
+    /**
+     * @param $table
+     * @param $values
+     * @return bool
+     */
+    public function insert($table, $values): bool
+    {
+        $fields = [];
+        $binds = [];
+        foreach ($values as $key => $value) {
+            $fields[] = $key;
+            $binds[] = ":{$key}";
+        }
+        $fieldStr = implode('`, `', $fields);
+        $bindStr = implode(', ', $binds);
+        $sql = "INSERT INTO {$table} (`{$fieldStr}`) VALUES ({$bindStr})";
+        $this->execute($sql, $values);
+        return !$this->_error;
+    }
+
+
+    /**
+     * @param $table
+     * @param $values
+     * @param $conditions
+     * @return bool
+     */
+    public function update($table, $values, $conditions): bool
+    {
+        $binds = [];
+        $valueStr = "";
+        foreach ($values as $field => $value) {
+            $valueStr .= ", `{$field}` = :{$field}";
+            $binds[$field] = $value;
+        }
+        $valueStr = ltrim($valueStr, ', ');
+        $sql = "UPDATE {$table} SET {$valueStr}";
+
+        if (!empty($conditions)) {
+            $conditionStr = " WHERE ";
+            foreach ($conditions as $field => $value) {
+                $conditionStr .= "`{$field}` = :cond{$field} AND ";
+                $binds['cond' . $field] = $value;
+            }
+            $conditionStr = rtrim($conditionStr, ' AND ');
+            $sql .= $conditionStr;
+        }
+        $this->execute($sql, $binds);
+        return !$this->_error;
     }
 
 
