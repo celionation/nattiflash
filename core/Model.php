@@ -32,7 +32,7 @@ class Model
      * @param $values
      * @return bool
      */
-    public static function insert($values)
+    public static function insert($values): bool
     {
         $db = static::getDb();
         return $db->insert(static::$table, $values);
@@ -44,7 +44,7 @@ class Model
      * @param $conditions
      * @return bool
      */
-    public static function update($values, $conditions)
+    public static function update($values, $conditions): bool
     {
         $db = static::getDb();
         return $db->update(static::$table, $values, $conditions);
@@ -54,7 +54,7 @@ class Model
     /**
      * @return Database
      */
-    public function delete()
+    public function delete(): Database
     {
         $db = static::getDb();
         $table = static::$table;
