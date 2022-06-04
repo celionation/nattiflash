@@ -1,6 +1,6 @@
 <?php
 
-namespace Core;
+namespace core;
 
 use app\controllers\BlogController;
 use Exception;

@@ -2,11 +2,12 @@
 
 session_start();
 
-use \Core\{Config, Router};
+use \core\{Config, Router};
 
 //define constant
 const PROOT = __DIR__;
 const DS = DIRECTORY_SEPARATOR;
+const TimeZone = 'Africa/Lagos';
 
 spl_autoload_register(function ($classname){
     $parts = explode('\\', $classname);
