@@ -4,6 +4,9 @@ namespace core;
 
 use Exception;
 
+/**
+ * @property array $errors
+ */
 class View
 {
     private $_siteTitle = '', $_content = [], $_currentContent, $_buffer, $_layout;

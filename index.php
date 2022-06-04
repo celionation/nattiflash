@@ -9,6 +9,13 @@ const PROOT = __DIR__;
 const DS = DIRECTORY_SEPARATOR;
 const TimeZone = 'Africa/Lagos';
 
+function asset($url)
+{
+    $file_path = $url;
+    $file_path = str_replace("\\", "/", $file_path);
+    return str_replace("//", "/", $file_path);
+}
+
 spl_autoload_register(function ($classname){
     $parts = explode('\\', $classname);
     $class = end($parts);
