@@ -11,12 +11,15 @@ use core\Router;
 use core\Session;
 use Exception;
 
+/**
+ * @property bool $currentUser
+ */
 class AdminController extends Controller
 {
     public function onConstruct()
     {
         $this->view->setLayout('admin');
-        /** @var mixed $currentUser */
+
         $this->currentUser = Users::getCurrentUser();
 
         Permission::permRedirect(['admin', 'author'], 'blog');
