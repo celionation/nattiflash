@@ -1,6 +1,10 @@
-<?php use core\forms\Form;
+<?php
 
-$this->start('content') ?>
+use core\forms\Form;
+
+?>
+
+<?php $this->start('content') ?>
 
 <section>
     <div class="imgBox">

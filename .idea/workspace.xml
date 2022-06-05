@@ -2,16 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="39695df2-1707-44ce-b060-242fe34d4718" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/controllers/AuthController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/Users.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/admin/auth/createUser.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/auth/login.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/auth/register.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/layouts/auth.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/forms/Form.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/css/admin/sb-admin.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/js/admin/sb-admin-charts.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/js/admin/sb-admin-datatables.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/js/admin/sb-admin.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/js/all.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/js/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/controllers/AdminController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/AdminUser.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/admin/register.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/components/admin/Crumbs.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/components/admin/Footer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/components/admin/Navbar.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/layouts/admin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/View.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/View.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/admin/auth/createUser.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/auth/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/auth/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/default.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/default.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +77,8 @@
       <option name="presentableId" value="Default" />
       <updated>1654288028419</updated>
       <workItem from="1654288030401" duration="25783000" />
-      <workItem from="1654354455716" duration="13793000" />
+      <workItem from="1654354455716" duration="17661000" />
+      <workItem from="1654386523016" duration="560000" />
     </task>
     <servers />
   </component>
