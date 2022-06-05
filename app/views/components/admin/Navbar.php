@@ -1,36 +1,65 @@
+<?php
+
+global $currentUser;
+/** @var mixed $currentUser */
+
+use core\helpers\Navigation;
+
+
+?>
+
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+    <a class="navbar-brand" href="#">Start Bootstrap</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                <a class="nav-link" href="/admin">
+            <li class="nav-item" data-bs-toggle="tooltip" data-placement="right" title="Dashboard">
+                <a class="nav-link" href="/admin/dashboard">
                     <i class="fa fa-fw fa-dashboard"></i>
                     <span class="nav-link-text">Dashboard</span>
                 </a>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+            <li class="nav-item" data-bs-toggle="tooltip" data-placement="right" title="Articles">
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#article" data-parent="#exampleAccordion">
                     <i class="fa fa-fw fa-newspaper"></i>
                     <span class="nav-link-text">Articles</span>
                 </a>
                 <ul class="sidenav-second-level collapse" id="article">
-                    <li>
-                        <a href="/admin/articles">Articles</a>
-                    </li>
-                    <li>
-                        <a href="/admin/article/new">New Article</a>
-                    </li>
+                    <?= Navigation::navItem('admin/articles', 'Articles', true) ?>
+                    <?= Navigation::navItem('admin/article/new', 'New Article', true) ?>
                 </ul>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+            <li class="nav-item" data-bs-toggle="tooltip" data-placement="right" title="Comments">
                 <a class="nav-link" href="/admin/comments">
                     <i class="fa fa-fw fa-comments"></i>
                     <span class="nav-link-text">Comments</span>
                 </a>
             </li>
+            <?php if ($currentUser->hasPermission('admin')) : ?>
+            <li class="nav-item" data-bs-toggle="tooltip" data-placement="right" title="Users">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#users" data-parent="#exampleAccordion">
+                    <i class="fa fa-fw fa-users"></i>
+                    <span class="nav-link-text">Users</span>
+                </a>
+                <ul class="sidenav-second-level collapse" id="users">
+                    <?= Navigation::navItem('admin/users', 'Users', true) ?>
+                    <?= Navigation::navItem('admin/register', 'New User', true) ?>
+                </ul>
+            </li>
+            <li class="nav-item" data-bs-toggle="tooltip" data-placement="right" title="Category & Region">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#category" data-parent="#exampleAccordion">
+                    <i class="fa fa-fw fa-tags"></i>
+                    <span class="nav-link-text">Categories & Region</span>
+                </a>
+                <ul class="sidenav-second-level collapse" id="category">
+                    <?= Navigation::navItem('admin/categories', 'Categories', true) ?>
+                    <?= Navigation::navItem('admin/regions', 'Regions', true) ?>
+                </ul>
+            </li>
+            <?php endif; ?>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#mailbox" data-parent="#exampleAccordion">
                     <i class="fa fa-fw fa-envelope-open-text"></i>

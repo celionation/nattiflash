@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\classes\Permission;
 use app\models\AdminUser;
 use app\models\Users;
 use core\Controller;
@@ -15,6 +16,10 @@ class AdminController extends Controller
     public function onConstruct()
     {
         $this->view->setLayout('admin');
+        /** @var mixed $currentUser */
+        $this->currentUser = Users::getCurrentUser();
+
+        Permission::permRedirect(['admin', 'author'], 'blog');
     }
 
     /**
@@ -22,6 +27,28 @@ class AdminController extends Controller
      */
     public function dashboardAction()
     {
+        $this->view->render();
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function articlesAction()
+    {
+        $this->view->render();
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function usersAction()
+    {
+        Permission::permRedirect('admin', 'admin/dashboard');
+        $params = ['order' => 'lname, fname'];
+        $params = Users::mergeWithPagination($params);
+        $this->view->users = Users::find($params);
+        $this->view->total = Users::findTotal($params);
+
         $this->view->render();
     }
 
@@ -78,12 +105,4 @@ class AdminController extends Controller
         $this->view->render();
     }
 
-
-    /**
-     * @throws Exception
-     */
-    public function usersAction()
-    {
-        $this->view->render();
-    }
 }

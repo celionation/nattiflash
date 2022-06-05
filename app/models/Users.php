@@ -4,6 +4,7 @@ namespace app\models;
 
 use core\Config;
 use core\Cookie;
+use core\helpers\GenerateToken;
 use core\Model;
 use core\Session;
 use core\validators\EmailValidator;
@@ -46,6 +47,7 @@ class Users extends Model
             $this->runValidation(new MinValidator($this, ['field' => 'password', 'rule' => 6, 'msg' => "Password must be at least 6 characters."]));
 
             $this->password = password_hash($this->password, PASSWORD_DEFAULT);
+            $this->user_id = GenerateToken::randomString(6);
         } else {
             $this->_skipUpdate = ['password'];
         }
@@ -115,6 +117,19 @@ class Users extends Model
             Session::msg("You are currently blocked. Please talk to an admin to resolve this.");
         }
         return self::$_current_user;
+    }
+
+    public function hasPermission($acl)
+    {
+        if (is_array($acl)) {
+            return in_array($this->acl, $acl);
+        }
+        return $this->acl == $acl;
+    }
+
+    public function displayName()
+    {
+        return trim($this->fname . ' ' . $this->lname);
     }
 
 }

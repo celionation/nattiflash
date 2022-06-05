@@ -37,6 +37,19 @@ use core\Session;
     </script>
 
     <style>
+        ::selection{
+            background: #000;
+            color: #fff;
+        }
+        .nav-item a:hover{
+            color: #111 !important;
+            background-color: #F1F1F1 !important;
+        }
+        .active{
+            color: #111 !important;
+            background-color: #F1F1F1 !important;
+        }
+
         .ck-editor__editable_inline {
             min-height: 400px;
         }
