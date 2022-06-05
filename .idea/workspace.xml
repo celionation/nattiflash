@@ -2,15 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="39695df2-1707-44ce-b060-242fe34d4718" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/core/validators/EmailValidator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/validators/MatchesValidator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/validators/MaxValidator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/validators/MinValidator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/validators/NumericValidator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/validators/RequiredValidator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/validators/UniqueValidator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/validators/Validator.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/AdminUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/AdminUser.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/Users.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Users.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/admin/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/Model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/Request.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/Request.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/Session.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/Session.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/database/Database.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/database/Database.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +71,7 @@
       <updated>1654288028419</updated>
       <workItem from="1654288030401" duration="25783000" />
       <workItem from="1654354455716" duration="17661000" />
-      <workItem from="1654386523016" duration="5824000" />
+      <workItem from="1654386523016" duration="7195000" />
     </task>
     <servers />
   </component>

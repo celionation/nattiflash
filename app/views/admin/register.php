@@ -35,7 +35,7 @@ use core\forms\Form;
                 </div>
 
 
-                <?= Form::inputField('Password', 'password', $this->user->password, ['class' => 'form-control', 'type' => 'password'], ['class' => 'col mb-3'], $this->errors); ?>
+                <?= Form::inputField('Password', 'password', '', ['class' => 'form-control', 'type' => 'password'], ['class' => 'col mb-3'], $this->errors); ?>
 
                 <?= Form::inputField('Confirm Password', 'confirmPassword', $this->user->confirmPassword, ['class' => 'form-control', 'type' => 'password'], ['class' => 'col mb-3'], $this->errors); ?>
 
