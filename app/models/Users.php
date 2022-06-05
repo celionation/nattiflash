@@ -2,7 +2,10 @@
 
 namespace app\models;
 
+use core\Config;
+use core\Cookie;
 use core\Model;
+use core\Session;
 use core\validators\EmailValidator;
 use core\validators\MatchesValidator;
 use core\validators\MinValidator;
@@ -47,4 +50,33 @@ class Users extends Model
             $this->_skipUpdate = ['password'];
         }
     }
+
+
+    /**
+     * @throws Exception
+     */
+    public function validateLogin()
+    {
+        $this->runValidation(new RequiredValidator($this, ['field' => 'email', 'msg' => "Email is a required field."]));
+        $this->runValidation(new RequiredValidator($this, ['field' => 'password', 'msg' => "Password is a required field."]));
+    }
+
+    public function login($remember = false)
+    {
+        Session::set('logged_in_user', $this->id);
+        self::$_current_user = $this;
+        if ($remember) {
+            $now  = time();
+            $newHash = md5("{$this->id}_{$now}");
+            $session = UserSessions::findByUserId($this->id);
+            if (!$session) {
+                $session = new UserSessions();
+            }
+            $session->user_id = $this->id;
+            $session->hash = $newHash;
+            $session->save();
+            Cookie::set(Config::get('login_cookie_name'), $newHash, 60 * 60 * 24 * 30);
+        }
+    }
+
 }

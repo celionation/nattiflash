@@ -34,7 +34,7 @@ use core\forms\Form;
                     <button type="submit">Sign Up</button>
                 </div>
                 <div class="inputBox">
-                    <p>Already a Member? <a href="/login">Sign In</a></p>
+                    <p>Already a Member? <a href="/auth/login">Sign In</a></p>
                 </div>
 
             </form>
