@@ -2,6 +2,7 @@
 
 session_start();
 
+use app\models\Users;
 use \core\{Config, Router};
 
 //define constant
@@ -26,6 +27,9 @@ spl_autoload_register(function ($classname){
         include($path);
     }
 });
+
+//check for logged-in user
+$currentUser = Users::getCurrentUser();
 
 $rootDir = Config::get('root_dir');
 define('ROOT', $rootDir);

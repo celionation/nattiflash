@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="39695df2-1707-44ce-b060-242fe34d4718" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/models/UserSessions.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/AuthController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/Users.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Users.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/auth/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/auth/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/auth/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/auth/register.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,7 +63,7 @@
       <updated>1654288028419</updated>
       <workItem from="1654288030401" duration="25783000" />
       <workItem from="1654354455716" duration="17661000" />
-      <workItem from="1654386523016" duration="12647000" />
+      <workItem from="1654386523016" duration="14057000" />
     </task>
     <servers />
   </component>

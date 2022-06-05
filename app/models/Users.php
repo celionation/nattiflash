@@ -79,4 +79,31 @@ class Users extends Model
         }
     }
 
+    public static function loginFromCookie()
+    {
+        $cookieName = Config::get('login_cookie_name');
+        if (!Cookie::exists($cookieName)) return false;
+        $hash = Cookie::get($cookieName);
+        $session = UserSessions::findByHash($hash);
+        if (!$session) return false;
+        $user = self::findById($session->user_id);
+        if ($user) {
+            $user->login(true);
+        }
+    }
+
+    public static function getCurrentUser()
+    {
+        if (!self::$_current_user && Session::exists('logged_in_user')) {
+            $user_id = Session::get('logged_in_user');
+            self::$_current_user = self::findById($user_id);
+        }
+        if (!self::$_current_user) self::loginFromCookie();
+        if (self::$_current_user && self::$_current_user->blocked) {
+            self::$_current_user->logout();
+            Session::msg("You are currently blocked. Please talk to an admin to resolve this.");
+        }
+        return self::$_current_user;
+    }
+
 }
