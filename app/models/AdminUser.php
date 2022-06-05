@@ -7,7 +7,7 @@ use core\Model;
 class AdminUser extends Model
 {
     protected static $table = "users", $_current_user = false;
-    public $id, $created_at, $updated_at, $fullname, $fname, $lname, $email, $password, $confirmPassword, $img, $acl, $gender, $ref_link, $state, $country, $address, $blocked, $terms, $verified;
+    public $id, $created_at, $updated_at, $fname, $lname, $email, $password, $acl, $blocked = 0, $confirmPassword, $remember = '';
 
     const GUESTS_PERMISSION = 'guests';
     const AUTHOR_PERMISSION = 'author';

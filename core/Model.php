@@ -12,12 +12,7 @@ class Model
     protected static $columns = false;
     protected $_validationPassed = true, $_errors = [], $_skipUpdate = [];
 
-
-    /**
-     * @param bool $setFetchClass
-     * @return Database
-     */
-    protected static function getDb(bool $setFetchClass = false): Database
+    protected static function getDb($setFetchClass = false)
     {
         $db = Database::getInstance();
         if ($setFetchClass) {
@@ -27,34 +22,19 @@ class Model
         return $db;
     }
 
-
-    /**
-     * @param $values
-     * @return bool
-     */
-    public static function insert($values): bool
+    public static function insert($values)
     {
         $db = static::getDb();
         return $db->insert(static::$table, $values);
     }
 
-
-    /**
-     * @param $values
-     * @param $conditions
-     * @return bool
-     */
-    public static function update($values, $conditions): bool
+    public static function update($values, $conditions)
     {
         $db = static::getDb();
         return $db->update(static::$table, $values, $conditions);
     }
 
-
-    /**
-     * @return Database
-     */
-    public function delete(): Database
+    public function delete()
     {
         $db = static::getDb();
         $table = static::$table;
@@ -79,17 +59,9 @@ class Model
         $db = static::getDb(true);
         list('sql' => $sql, 'bind' => $bind) = self::selectBuilder($params);
         $results = $db->query($sql, $bind)->results();
-        return $results[0] ?? false;
+        return isset($results[0]) ? $results[0] : false;
     }
 
-
-    /**
-     * findById get data from the database by the id
-     * @param $id
-     * @return false|mixed
-     * @version 1.0.0
-     * @author Celio Natti
-     */
     public static function findById($id)
     {
         return static::findFirst([
@@ -98,15 +70,7 @@ class Model
         ]);
     }
 
-
-    /**
-     * findTotal functionality that get the total numbers of data in a query
-     * @param array $params for all values to get the query
-     * @return int return found in the database
-     * @version 1.0.0
-     * @author Celio Natti
-     */
-    public static function findTotal(array $params = []): int
+    public static function findTotal($params = [])
     {
         unset($params['limit']);
         unset($params['offset']);
@@ -116,52 +80,11 @@ class Model
         $sql .= $conds;
         $db = static::getDb();
         $results = $db->query($sql, $bind);
-        return sizeof($results->results()) > 0 ? $results->results()[0]->total : 0;
+        $total = sizeof($results->results()) > 0 ? $results->results()[0]->total : 0;
+        return $total;
     }
 
-    /**
-     * Search functionality that searched records in a table
-     * @param string $scope defines the columns to search in the database separated by commas
-     * @param string $keywords defines the wildcard pattern to look for
-     * @return array $result results found in the database
-     * @throws Exception
-     * @version 1.0
-     * @author Celio Natti
-     */
-    public function search(string $scope, string $keywords): array
-    {
-        $db = static::getDb();
-        // clean up the input
-        $scopeArray = explode(',', $scope);
-        $keywords = trim($keywords);
-        $sql = '';
-
-        //build the query
-        foreach ($scopeArray as $key => $value) {
-            $DS = ' OR ';
-            if ($key == count($scopeArray) - 1) {
-                $DS = '';
-            }
-            $value = sanitize(trim($value));
-            $sql .= "`$value`" . ' LIKE ' . "'$keywords'" . $DS;
-        }
-
-        $sql = 'SELECT * FROM ' . $this->table . ' WHERE ' . $sql;
-
-        // Execute the result
-        $result = $db->execute($sql);
-        $renderedResult = array();
-        foreach ($result as $key => $value) {
-            $renderedResult[] = $this->arrayToModel($value);
-        }
-        return $renderedResult;
-    }
-
-
-    /**
-     * @return bool
-     */
-    public function save(): bool
+    public function save()
     {
         $save = false;
         $this->beforeSave();
@@ -180,17 +103,12 @@ class Model
         return $save;
     }
 
-    public function isNew(): bool
+    public function isNew()
     {
         return empty($this->id);
     }
 
-
-    /**
-     * @param array $params
-     * @return array
-     */
-    public static function selectBuilder(array $params = []): array
+    public static function selectBuilder($params = [])
     {
         $columns = array_key_exists('columns', $params) ? $params['columns'] : "*";
         $table = static::$table;
@@ -200,12 +118,7 @@ class Model
         return ['sql' => $sql, 'bind' => $bind];
     }
 
-
-    /**
-     * @param array $params
-     * @return array
-     */
-    public static function queryParamBuilder(array $params = []): array
+    public static function queryParamBuilder($params = [])
     {
         $sql = "";
         $bind = array_key_exists('bind', $params) ? $params['bind'] : [];
@@ -216,7 +129,7 @@ class Model
             foreach ($joins as $join) {
                 $joinTable = $join[0];
                 $joinOn = $join[1];
-                $joinAlias = $join[2] ?? "";
+                $joinAlias = isset($join[2]) ? $join[2] : "";
                 $joinType = isset($join[3]) ? "{$join[3]} JOIN" : "JOIN";
                 $sql .= " {$joinType} {$joinTable} {$joinAlias} ON {$joinOn}";
             }
@@ -254,7 +167,7 @@ class Model
         return ['sql' => $sql, 'bind' => $bind];
     }
 
-    public function getValuesForSave(): array
+    public function getValuesForSave()
     {
         $columns = static::getColumns();
         $values = [];
@@ -266,11 +179,7 @@ class Model
         return $values;
     }
 
-
-    /**
-     * @return bool
-     */
-    public static function getColumns(): bool
+    public static function getColumns()
     {
         if (!static::$columns) {
             $db = static::getDb();
@@ -295,7 +204,7 @@ class Model
         }
     }
 
-    public function getErrors(): array
+    public function getErrors()
     {
         return $this->_errors;
     }
@@ -306,10 +215,7 @@ class Model
         $this->_validationPassed = false;
     }
 
-    /**
-     * @throws Exception
-     */
-    public function timeStamps(): void
+    public function timeStamps()
     {
         $dt = new \DateTime("now", new \DateTimeZone("UTC"));
         $now = $dt->format('Y-m-d H:i:s');
@@ -331,9 +237,7 @@ class Model
         return $params;
     }
 
-
     public function beforeSave()
     {
     }
-
 }

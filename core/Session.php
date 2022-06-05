@@ -2,6 +2,9 @@
 
 namespace core;
 
+use core\helpers\GenerateToken;
+use Exception;
+
 class Session
 {
     public static function exists($name): bool
@@ -25,6 +28,30 @@ class Session
     public static function delete($name)
     {
         unset($_SESSION[$name]);
+    }
+
+
+    /**
+     * @throws Exception
+     */
+    public static function createCsrfToken()
+    {
+        $token = GenerateToken::CreateToken();
+        self::set('_token', $token);
+        return $token;
+    }
+
+    /**
+     * @throws Exception
+     */
+    public static function csrfCheck()
+    {
+        $request = new Request();
+        $check = $request->get('_token');
+        if (self::exists('_token') && self::get('_token') == $check) {
+            return true;
+        }
+        Router::redirect('auth/badToken');
     }
 
 }

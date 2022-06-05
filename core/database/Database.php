@@ -9,17 +9,10 @@ use PDO;
 
 class Database
 {
-    protected $_dbh, $_results, $_class;
-    protected $_fetchType = PDO::FETCH_OBJ;
-    protected $_lastInsertId;
-    protected $_error = false;
-    protected $_rowCount = 0;
+    protected $_dbh, $_results, $_lastInsertId, $_rowCount = 0, $_fetchType = PDO::FETCH_OBJ, $_class, $_error = false;
     protected $_stmt;
     protected static $_db;
 
-    /**
-     * @throws Exception
-     */
     public function __construct()
     {
         $host = Config::get('db_host');
@@ -38,7 +31,7 @@ class Database
         }
     }
 
-    public static function getInstance(): Database
+    public static function getInstance()
     {
         if (!self::$_db) {
             self::$_db = new self();
@@ -46,13 +39,7 @@ class Database
         return self::$_db;
     }
 
-
-    /**
-     * @param $sql
-     * @param array $bind
-     * @return $this
-     */
-    public function execute($sql, array $bind = []): Database
+    public function execute($sql, $bind = [])
     {
         $this->_results = null;
         $this->_lastInsertId = null;
@@ -66,13 +53,7 @@ class Database
         return $this;
     }
 
-
-    /**
-     * @param $sql
-     * @param array $bind
-     * @return $this
-     */
-    public function query($sql, array $bind = []): Database
+    public function query($sql, $bind = [])
     {
         $this->execute($sql, $bind);
         if (!$this->_error) {
@@ -86,13 +67,7 @@ class Database
         return $this;
     }
 
-
-    /**
-     * @param $table
-     * @param $values
-     * @return bool
-     */
-    public function insert($table, $values): bool
+    public function insert($table, $values)
     {
         $fields = [];
         $binds = [];
@@ -107,14 +82,7 @@ class Database
         return !$this->_error;
     }
 
-
-    /**
-     * @param $table
-     * @param $values
-     * @param $conditions
-     * @return bool
-     */
-    public function update($table, $values, $conditions): bool
+    public function update($table, $values, $conditions)
     {
         $binds = [];
         $valueStr = "";
@@ -138,28 +106,16 @@ class Database
         return !$this->_error;
     }
 
-
-    /**
-     * @return mixed
-     */
     public function results()
     {
         return $this->_results;
     }
 
-
-    /**
-     * @return int
-     */
-    public function count(): int
+    public function count()
     {
         return $this->_rowCount;
     }
 
-
-    /**
-     * @return mixed
-     */
     public function lastInsertId()
     {
         return $this->_lastInsertId;
@@ -180,7 +136,7 @@ class Database
         $this->_fetchType = $type;
     }
 
-    public function getFetchType(): int
+    public function getFetchType()
     {
         return $this->_fetchType;
     }

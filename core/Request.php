@@ -4,41 +4,37 @@ namespace core;
 
 class Request
 {
-    public function isPost(): bool
+    public function isPost()
     {
         return $this->getRequestMethod() === 'POST';
     }
 
-    public function isPut(): bool
+    public function isPut()
     {
         return $this->getRequestMethod() === 'PUT';
     }
 
-    public function isGet(): bool
+    public function isGet()
     {
         return $this->getRequestMethod() === 'GET';
     }
 
-    public function isDelete(): bool
+    public function isDelete()
     {
         return $this->getRequestMethod() === 'DELETE';
     }
 
-    public function isPatch(): bool
+    public function isPatch()
     {
         return $this->getRequestMethod() === 'PATCH';
     }
 
-    public function getRequestMethod(): string
+    public function getRequestMethod()
     {
         return strtoupper($_SERVER['REQUEST_METHOD']);
     }
 
-    /**
-     * @param bool $input
-     * @return array|false|string
-     */
-    public function get(bool $input = false)
+    public function get($input = false)
     {
         if (!$input) {
             $data = [];
@@ -50,7 +46,7 @@ class Request
         return array_key_exists($input, $_REQUEST) ? self::sanitize($_REQUEST[$input]) : false;
     }
 
-    public static function sanitize($dirty): string
+    public static function sanitize($dirty)
     {
         return htmlentities(trim($dirty), ENT_QUOTES, "UTF-8");
     }
