@@ -42,6 +42,8 @@ if (ROOT != '/') {
 }
 $url = preg_replace('/(\?.+)/', '', $url);
 
+$currentPage = $url;
+
 try {
     Router::route($url);
 } catch (Exception $e) {

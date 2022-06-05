@@ -1,5 +1,9 @@
 <?php
 
+global $currentUser;
+
+use core\helpers\Navigation;
+
 
 ?>
 
@@ -14,9 +18,7 @@
         </button>
         <div class="collapse navbar-collapse text-center" id="navbarCollapse">
             <ul class="navbar-nav mx-auto mb-2 mb-md-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/">Home</a>
-                </li>
+                <?= Navigation::navItem('blog', 'Home') ?>
                 <li class="nav-item">
                     <a class="nav-link" href="/news">News</a>
                 </li>
@@ -31,12 +33,28 @@
                 <li class="nav-item">
                     <a class="nav-link" id="search-btn"><span class="fas fa-search"></span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Sign In</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Sign Up</a>
-                </li>
+                <?php if(!$currentUser): ?>
+                    <?= Navigation::navItem('auth/login', 'Sign In') ?>
+                    <?= Navigation::navItem('auth/register', 'Sign Up') ?>
+                <?php endif; ?>
+
+                <?php if($currentUser): ?>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="accountDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <?php /** @var mixed $currentUser */ ?>
+                            <span class="text-danger">Hi</span> <?= $currentUser->fname ?? 'Guests'; ?>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="accountDropdown">
+                            <?php if ($currentUser->acl !== 'guests') : ?>
+                                <?= Navigation::navItem('admin/dashboard', 'Admin Dashboard', true); ?>
+                                <li>
+                                    <hr class="dropdown-divider text-danger">
+                                </li>
+                            <?php endif ?>
+                            <?= Navigation::navItem('auth/logout', 'Log Out', true); ?>
+                        </ul>
+                    </li>
+                <?php endif; ?>
             </ul>
         </div>
     </div>
