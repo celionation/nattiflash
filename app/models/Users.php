@@ -36,7 +36,7 @@ class Users extends Model
         $this->runValidation(new UniqueValidator($this, ['field' => ['email'], 'msg' => 'A user with that email address already exists.']));
         $this->runValidation(new RequiredValidator($this, ['field' => 'acl', 'msg' => "Role is a required field."]));
 
-        if ($this->isNew()) {
+        if ($this->isNew() || $this->resetPassword) {
             $this->runValidation(new RequiredValidator($this, ['field' => 'password', 'msg' => "Password is a required field."]));
             $this->runValidation(new RequiredValidator($this, ['field' => 'confirmPassword', 'msg' => "Confirm Password is a required field."]));
             $this->runValidation(new MatchesValidator($this, ['field' => 'confirmPassword', 'rule' => $this->password, 'msg' => "Your passwords do not match."]));

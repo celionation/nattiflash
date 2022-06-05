@@ -10,7 +10,7 @@ use core\forms\Form;
     <div class="col-md-12 mx-auto shadow p-2">
         <div class="card card-body bg-light">
             <div class="d-flex align-items-center">
-                <h2 class="mx-auto">Create New User with Permissions</h2>
+                <h2 class="mx-auto"><?= $this->header ?></h2>
             </div>
 
             <p class="text-danger text-center border-danger border-bottom border-3">Please fill in all fields
@@ -41,7 +41,7 @@ use core\forms\Form;
 
                 <div class="row">
                     <div class="col">
-                        <button type="submit" class="btn btn-success w-100">Create</button>
+                        <button type="submit" class="btn btn-success w-100">Save</button>
                     </div>
                     <div class="col">
                         <a href="/admin/users" class="btn btn-danger w-100">Cancel</a>

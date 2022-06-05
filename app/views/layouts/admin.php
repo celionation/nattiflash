@@ -2,6 +2,7 @@
 
 
 use Core\Config;
+use core\Session;
 
 ?>
 
@@ -54,6 +55,7 @@ use Core\Config;
 <div class="content-wrapper">
     <div class="container-fluid">
         <?= $this->components('admin/Crumbs') ?>
+        <?= Session::displaySessionAlerts(); ?>
         <?php $this->content('content') ?>
         <?= $this->components('admin/Footer') ?>
     </div>
