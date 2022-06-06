@@ -38,6 +38,7 @@ class AdminController extends Controller
      */
     public function articlesAction()
     {
+        Permission::permRedirect(['admin', 'author'], 'admin/dashboard');
         $this->view->render();
     }
 
@@ -60,6 +61,7 @@ class AdminController extends Controller
      */
     public function registerAction($id = 'new')
     {
+        Permission::permRedirect('admin', 'admin/dashboard');
         if ($id == 'new') {
             $user = new Users();
         } else {
@@ -95,17 +97,46 @@ class AdminController extends Controller
         $this->view->user = $user;
         $this->view->acl = [
             '' => '',
-            AdminUser::AUTHOR_PERMISSION => 'Author',
-            AdminUser::ADMIN_PERMISSION => 'Admin',
-            AdminUser::GUESTS_PERMISSION => 'Guests'
+            Users::AUTHOR_PERMISSION => 'Author',
+            Users::ADMIN_PERMISSION => 'Admin',
+            Users::GUESTS_PERMISSION => 'Guests'
         ];
         $this->view->gender = [
             '' => '',
-            AdminUser::MALE_GENDER => 'Male',
-            AdminUser::FEMALE_GENDER => 'Female',
+            Users::MALE_GENDER => 'Male',
+            Users::FEMALE_GENDER => 'Female',
         ];
         $this->view->errors = $user->getErrors();
         $this->view->render();
+    }
+
+    public function toggleUserAction($userId)
+    {
+        Permission::permRedirect('admin', 'admin/dashboard');
+        $user = Users::findById($userId);
+        if ($user) {
+            $user->blocked = $user->blocked ? 0 : 1;
+            $user->save();
+            $msg = $user->blocked ? "User blocked." : "User unblocked.";
+        }
+        Session::msg($msg, 'success');
+        Router::redirect('admin/users');
+    }
+
+    public function deleteUserAction($userId)
+    {
+        Permission::permRedirect('admin', 'admin/dashboard');
+        $user = Users::findById($userId);
+        $msgType = 'danger';
+        $msg = 'User cannot be deleted';
+        /** @var mixed $currentUser */
+        if ($user && $user->id !== $this->currentUser->id) {
+            $user->delete();
+            $msgType = 'success';
+            $msg = 'User deleted';
+        }
+        Session::msg($msg, $msgType);
+        Router::redirect('admin/users');
     }
 
 }

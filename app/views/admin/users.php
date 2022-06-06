@@ -32,7 +32,7 @@
                 <td><?= $user->blocked ? "Blocked" : "Active" ?></td>
                 <td class="text-end">
                     <a href="/admin/register/<?= $user->id ?>" class="btn btn-sm btn-info">Edit</a>
-                    <a href="/admin/block_user/<?= $user->id ?>" class="btn btn-sm <?= $user->blocked ? "btn-warning" : "btn-secondary" ?>">
+                    <a href="/admin/toggleUser/<?= $user->id ?>" class="btn btn-sm <?= $user->blocked ? "btn-warning" : "btn-secondary" ?>">
                         <?= $user->blocked ? "Unblock" : "Block" ?>
                     </a>
                     <button class="btn btn-sm btn-danger" onclick="confirmDelete('<?= $user->id ?>')">Delete</button>
