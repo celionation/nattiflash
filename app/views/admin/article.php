@@ -42,7 +42,15 @@ use core\forms\Form;
                 <?= Form::selectField('Category', 'category_id', $this->article->category_id, $this->categoryOptions, ['class' => 'form-control'], ['class' => 'mb-3 col-md-4'], $this->errors); ?>
                 <?= Form::selectField('Region', 'region_id', $this->article->region_id, $this->regionOptions, ['class' => 'form-control'], ['class' => 'mb-3 col-md-4'], $this->errors); ?>
                 <?= Form::textareaField('Article Body', 'body', html_entity_decode($this->article->body), ['class' => 'form-control', 'rows' => "15"], ['class' => 'mb-3 col-md-12'], $this->errors); ?>
+                <?= Form::fileInput('Featured Image', 'img', ['class' => 'form-control'], ['class' => 'mb-3 col-12'], $this->errors); ?>
             </div>
+
+            <?php if ($this->hasImage) : ?>
+                <div class="d-flex align-items-center">
+                    <h5 class="me-2 mx-3">Current Image</h5>
+                    <img src="<?= '/' . $this->article->img ?>" style="height:75px;width:75px;object-fit:cover;" alt="<?= $this->article->title ?>" />
+                </div>
+            <?php endif; ?>
 
             <div class="text-end">
                 <a href="/admin/articles" class="btn btn-secondary">Cancel</a>

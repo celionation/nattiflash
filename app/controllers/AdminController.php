@@ -10,6 +10,7 @@ use app\models\Regions;
 use app\models\Users;
 use core\Controller;
 use core\helpers\CoreHelpers;
+use core\helpers\FileUpload;
 use core\Router;
 use core\Session;
 use Exception;
@@ -82,7 +83,26 @@ class AdminController extends Controller
             $article->status = $this->request->get('status');
             $article->category_id = $this->request->get('category_id');
             $article->region_id = $this->request->get('region_id');
+
+            $upload = new FileUpload('img');
+
+            if ($id != 'new') {
+                $upload->required = false;
+            }
+            $uploadErrors = $upload->validate();
+            if (!empty($uploadErrors)) {
+                foreach ($uploadErrors as $field => $error) {
+                    $article->setError($field, $error);
+                }
+            }
+
             if($article->save()) {
+                if(!empty($upload->tmp)) {
+                    if($upload->upload()) {
+                        $article->img = $upload->fc;
+                        $article->save();
+                    }
+                }
                 Session::msg("{$article->title} saved.", 'success');
                 Router::redirect('admin/articles');
             }
