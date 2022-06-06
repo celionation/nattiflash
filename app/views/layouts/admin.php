@@ -21,20 +21,8 @@ use core\Session;
     <link rel="stylesheet" href="<?= ROOT ?>app/assets/vendor/sweetalert2/sweetalert2.min.css">
     <link rel="stylesheet" href="<?= ROOT ?>app/assets/vendor/datatables/dataTables.bootstrap4.css">
     <link rel="stylesheet" href="<?= ROOT ?>app/assets/css/admin/sb-admin.css">
-    <script src="<?= ROOT ?>app/assets/vendor/ckeditor5/ckeditor.js"></script>
     <title><?= $this->getSiteTitle(); ?> | NattiFlash</title>
     <?php $this->content('head') ?>
-    <script>
-        import {ClassicEditor} from "../../assets/vendor/ckeditor5/ckeditor";
-
-        window.addEventListener('load', function() {
-            ClassicEditor
-                .create(document.querySelector('#body'))
-                .catch(error => {
-                    console.error(error);
-                });
-        });
-    </script>
 
     <style>
         ::selection{
@@ -49,16 +37,8 @@ use core\Session;
             color: #111 !important;
             background-color: #F1F1F1 !important;
         }
-
-        .ck-editor__editable_inline {
-            min-height: 400px;
-        }
-
-        .is-invalid+.ck-editor .ck.ck-editor__main>.ck-editor__editable:not(.ck-focused) {
-            border-color: crimson;
-        }
-
-        button[type='submit'] {
+        button[type='submit'],
+        button{
             cursor: pointer;
         }
     </style>
