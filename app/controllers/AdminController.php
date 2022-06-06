@@ -4,7 +4,9 @@ namespace app\controllers;
 
 use app\classes\Permission;
 use app\models\AdminUser;
+use app\models\Articles;
 use app\models\Categories;
+use app\models\Regions;
 use app\models\Users;
 use core\Controller;
 use core\helpers\CoreHelpers;
@@ -40,6 +42,59 @@ class AdminController extends Controller
     public function articlesAction()
     {
         Permission::permRedirect(['admin', 'author'], 'admin/dashboard');
+        $this->view->render();
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function articleAction($id = 'new')
+    {
+        Permission::permRedirect(['admin', 'author'], 'admin/dashboard');
+
+        $params = [
+            'conditions' => "id = :id AND user_id = :user_id",
+            'bind' => ['id' => $id, 'user_id' => $this->currentUser->id]
+        ];
+        $article = $id == 'new' ? new Articles() : Articles::findFirst($params);
+        if (!$article) {
+            Session::msg("You do not have permission to edit this article");
+            Router::redirect('admin/articles');
+        }
+
+        $categories = Categories::find(['order' => 'name']);
+        $catOptions = [0 => 'Uncategorized'];
+        foreach ($categories as $category) {
+            $catOptions[$category->id] = $category->name;
+        }
+
+        $regions = Regions::find(['order' => 'name']);
+        $regOptions = [0 => 'World'];
+        foreach ($regions as $region) {
+            $regOptions[$region->id] = $region->name;
+        }
+
+        if($this->request->isPost()) {
+            Session::csrfCheck();
+            $article->user_id = $this->currentUser->id;
+            $article->title = $this->request->get('title');
+            $article->body = $this->request->get('body');
+            $article->status = $this->request->get('status');
+            $article->category_id = $this->request->get('category_id');
+            $article->region_id = $this->request->get('region_id');
+            if($article->save()) {
+                Session::msg("{$article->title} saved.", 'success');
+                Router::redirect('admin/articles');
+            }
+        }
+
+        $this->view->article = $article;
+        $this->view->hasImage = !empty($article->img);
+        $this->view->statusOptions = ['private' => 'Private', 'public' => 'Public'];
+        $this->view->categoryOptions = $catOptions;
+        $this->view->regionOptions = $regOptions;
+        $this->view->errors = $article->getErrors();
+        $this->view->heading = $id === 'new' ? "Add Article" : "Edit Article";
         $this->view->render();
     }
 
@@ -195,6 +250,63 @@ class AdminController extends Controller
         $category->delete();
         Session::msg("Category Deleted.", 'success');
         Router::redirect('admin/categories');
+    }
+
+
+    /**
+     * @throws Exception
+     */
+    public function regionsAction()
+    {
+        Permission::permRedirect('admin', 'admin/dashboard');
+
+        $params = ['order' => 'name'];
+        $params = Regions::mergeWithPagination($params);
+        $this->view->regions = Regions::find($params);
+        $this->view->total = Regions::findTotal($params);
+        $this->view->render();
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function regionAction($id = 'new')
+    {
+        Permission::permRedirect('admin', 'admin/dashboard');
+
+        $region = $id == 'new' ? new Regions() : Regions::findById($id);
+        if (!$region) {
+            Session::msg("Region does not exist.");
+            Router::redirect('admin/regions');
+        }
+
+        if ($this->request->isPost()) {
+            Session::csrfCheck();
+            $region->name = $this->request->get('name');
+            if ($region->save()) {
+                Session::msg('Region Saved!', 'success');
+                Router::redirect('admin/regions');
+            }
+        }
+
+        $this->view->region = $region;
+        $this->view->heading = $id == 'new' ? "Add Region" : "Edit Region";
+        $this->view->errors = $region->getErrors();
+        $this->view->render();
+    }
+
+    public function deleteRegionAction($id)
+    {
+        Permission::permRedirect('admin', 'admin/dashboard');
+
+        $region = Regions::findById($id);
+        if (!$region) {
+            Session::msg("That region does not exist");
+            Router::redirect('admin/regions');
+        }
+        $region->delete();
+        Session::msg("Region Deleted.", 'success');
+        Router::redirect('admin/regions');
     }
 
 }
