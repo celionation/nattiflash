@@ -43,6 +43,33 @@ class AdminController extends Controller
     public function articlesAction()
     {
         Permission::permRedirect(['admin', 'author'], 'admin/dashboard');
+
+        if($this->currentUser->acl == 'admin') {
+            $params = [
+                'columns' => "articles.*, users.fname, users.lname, categories.name as category",
+                'joins' => [
+                    ['users', 'articles.user_id = users.id'],
+                    ['categories', 'articles.category_id = categories.id', 'categories', 'LEFT']
+                ],
+                'order' => 'articles.id DESC'
+            ];
+        } else {
+            $params = [
+                'columns' => "articles.*, users.fname, users.lname, categories.name as category",
+                'conditions' => "users.user_id = :user_id",
+                'bind' => ['user_id' => $this->currentUser->user_id],
+                'joins' => [
+                    ['users', 'articles.user_id = users.id'],
+                    ['categories', 'articles.category_id = categories.id', 'categories', 'LEFT']
+                ],
+                'order' => 'articles.id DESC'
+            ];
+        }
+
+        $params = Articles::mergeWithPagination($params);
+        $this->view->articles = Articles::find($params);
+        $this->view->total = Articles::findTotal($params);
+
         $this->view->render();
     }
 
@@ -116,6 +143,34 @@ class AdminController extends Controller
         $this->view->errors = $article->getErrors();
         $this->view->heading = $id === 'new' ? "Add Article" : "Edit Article";
         $this->view->render();
+    }
+
+
+    public function deleteArticleAction($id)
+    {
+        Permission::permRedirect(['admin', 'author'], 'admin');
+
+        if ($this->currentUser->acl == 'admin') {
+            $params = [
+                'conditions' => "id = :id",
+                'bind' => ['id' => $id]
+            ];
+        } else {
+            $params = [
+                'conditions' => "id = :id AND user_id = :user_id",
+                'bind' => ['id' => $id, 'user_id' => $this->currentUser->id]
+            ];
+        }
+
+        $article = Articles::findFirst($params);
+        if ($article) {
+            Session::msg("Article Deleted Successfully.", 'success');
+            unlink(PROOT . DS . $article->img);
+            $article->delete();
+        } else {
+            Session::msg("You do not have permission to delete that article");
+        }
+        Router::redirect('admin/articles');
     }
 
     /**
