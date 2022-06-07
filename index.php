@@ -4,6 +4,7 @@ session_start();
 
 use app\models\Users;
 use \core\{Config, Router};
+use Symfony\Component\Dotenv\Dotenv;
 
 //define constant
 const PROOT = __DIR__;
@@ -17,6 +18,12 @@ function asset($url)
     return str_replace("//", "/", $file_path);
 }
 
+require_once(PROOT . DS . 'lib/dotenv/Dotenv.php');
+require_once(PROOT . DS . 'lib/dotenv/Exception/ExceptionInterface.php');
+require_once(PROOT . DS . 'lib/dotenv/Exception/FormatException.php');
+require_once(PROOT . DS . 'lib/dotenv/Exception/FormatExceptionContext.php');
+require_once(PROOT . DS . 'lib/dotenv/Exception/PathException.php');
+
 spl_autoload_register(function ($classname){
     $parts = explode('\\', $classname);
     $class = end($parts);
@@ -27,6 +34,10 @@ spl_autoload_register(function ($classname){
         include($path);
     }
 });
+
+//Dotenv Loading
+$dotenv = new Dotenv();
+$dotenv->load(PROOT . DS . '.env');
 
 //check for logged-in user
 $currentUser = Users::getCurrentUser();

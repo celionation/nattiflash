@@ -81,7 +81,7 @@ use core\helpers\TimeFormat;
                 <!-- End of News -->
 
                 <!-- Pagination -->
-
+                    <?php $this->partials('partials/pager') ?>
                 <!-- //Pagination -->
             </div>
         </div>
