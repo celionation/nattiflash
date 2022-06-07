@@ -20,13 +20,19 @@ use core\helpers\Navigation;
             <ul class="navbar-nav mx-auto mb-2 mb-md-0">
                 <?= Navigation::navItem('blog', 'Home') ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="/news">News</a>
+                    <a class="nav-link" href="/blog/news">News</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/contact">Contact</a>
+                    <a class="nav-link" href="/blog/sports">Sports</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/magazine">Magazine</a>
+                    <a class="nav-link" href="/blog/reel">Reel</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/page/contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/page/magazine">Magazine</a>
                 </li>
             </ul>
             <ul class="navbar-nav mx-end mb-2 mb-md-0">
