@@ -19,21 +19,11 @@ use core\helpers\Navigation;
         <div class="collapse navbar-collapse text-center" id="navbarCollapse">
             <ul class="navbar-nav mx-auto mb-2 mb-md-0">
                 <?= Navigation::navItem('blog', 'Home') ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="/blog/news">News</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/blog/sports">Sports</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/blog/reel">Reel</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/page/contact">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/page/magazine">Magazine</a>
-                </li>
+                <?= Navigation::navItem('blog/news', 'News') ?>
+                <?= Navigation::navItem('blog/sports', 'Sports') ?>
+                <?= Navigation::navItem('blog/entertainment', 'Entertainment') ?>
+                <?= Navigation::navItem('page/contact', 'Contact') ?>
+                <?= Navigation::navItem('page/contact', 'Magazine') ?>
             </ul>
             <ul class="navbar-nav mx-end mb-2 mb-md-0">
                 <li class="nav-item">

@@ -46,6 +46,24 @@ class BlogController extends Controller
         $this->view->render();
     }
 
+
+    /**
+     * @throws Exception
+     */
+    public function sportsAction()
+    {
+        $this->view->render();
+    }
+
+
+    /**
+     * @throws Exception
+     */
+    public function entertainmentAction()
+    {
+        $this->view->render();
+    }
+
     /**
      * @throws Exception
      */
@@ -106,6 +124,44 @@ class BlogController extends Controller
         $this->view->heading = "Author: {$author->displayName()}";
         $this->view->setSiteTitle('Newest Articles');
         $this->view->render('blog/news');
+    }
+
+
+    /**
+     * @throws Exception
+     */
+    public function readAction($id)
+    {
+        $params = [
+            'columns' => "articles.*, users.fname, users.lname, category.name as category, category.id as category_id, region.name as region",
+            'conditions' => "articles.id = :id AND articles.status = 'public'",
+            'joins' => [
+                ['users', 'users.id = articles.user_id'],
+                ['categories', 'category.id = articles.category_id', 'category', 'LEFT'],
+                ['regions', 'region.id = articles.region_id', 'region', 'LEFT']
+            ],
+            'bind' => ['id' => $id]
+        ];
+        $article = Articles::findFirst($params);
+        if (!$article) Router::redirect('blog/articleNotFound');
+        if (empty($article->category_id)) {
+            $article->category_id = 0;
+            $article->category = "Uncategorized";
+        }
+        if (empty($article->region_id)) {
+            $article->region_id = 0;
+            $article->region = "World";
+        }
+        $this->view->article = $article;
+        $this->view->render();
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function articleNotFoundAction()
+    {
+        $this->view->render();
     }
 
 }

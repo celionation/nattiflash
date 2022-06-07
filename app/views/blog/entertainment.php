@@ -3,8 +3,8 @@
 
 <?php $this->start('content') ?>
 
-    <div class="sub-menu mt-5 p-3 bg-info">
-        <h1 class="text-uppercase text-white border-bottom border-dark border-1 pb-2 mb-3">Sports</h1>
+    <div class="sub-menu mt-5 p-3 bg-primary">
+        <h1 class="text-uppercase text-white border-bottom border-dark border-1 pb-2 mb-3">Entertainment</h1>
         <div class="sub-menu-item px-2 d-flex justify-content-between align-items-center">
             <div>
                 <a href="/" class="fw-bold text-black border-end border-1 px-2 text-capitalize">Home</a>
@@ -32,21 +32,21 @@
             </div>
         </div>
     </div>
-        <div class="container-fluid mt-2">
-            <div class="row">
-                <div class="col-md-8">
-                    <!-- news -->
-                    <div class="news-page">
-                        <h1>Sports Page</h1>
-                        <!-- End of News -->
+    <div class="container-fluid mt-2">
+        <div class="row">
+            <div class="col-md-8">
+                <!-- news -->
+                <div class="news-page">
+                    <h1>Entertainment Page</h1>
+                    <!-- End of News -->
 
-                        <!-- Pagination -->
+                    <!-- Pagination -->
 
-                        <!-- //Pagination -->
-                    </div>
+                    <!-- //Pagination -->
                 </div>
-                <?php $this->components('mainSidebar') ?>
             </div>
+            <?php $this->components('mainSidebar') ?>
         </div>
+    </div>
 
 <?php $this->end() ?>

@@ -26,6 +26,8 @@ use Core\Config;
     <?php $this->content('content') ?>
 </div>
 
-<script src="<?= ROOT ?>app/assets/js/bootstrap.bundle.min.js"></script>
+    <?= $this->components('mainFooter') ?>
+    <script src="<?= ROOT ?>app/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= ROOT ?>app/assets/js/main.js"></script>
 </body>
 </html>
